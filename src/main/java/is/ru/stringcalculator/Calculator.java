@@ -6,7 +6,7 @@ public class Calculator {
         if(numbers.isEmpty()){
            return 0;        
         }
-        else if(numbers.contains("//")){
+        if(numbers.contains("//")){
            int i = 0;
            while(true){
               Character ch = numbers.charAt(i);
@@ -18,22 +18,21 @@ public class Calculator {
            String delimeter = numbers.substring(2,i);
            String delString = numbers.substring(i+1); 
            String[] delArray = delString.split(delimeter);
-           int sum = 0;
-           for(int j = 0; j < delArray.length; j++){
-              sum = sum + Integer.parseInt(delArray[j]);
-           }
-           return sum;
+           return findSum(delArray);
         }
-        else if(numbers.contains(",") || numbers.contains("\n")){
+        if(numbers.contains(",") || numbers.contains("\n")){
            String[] array = numbers.split("(,)|(\n)");
-           int totalSum = 0;
-           for(int i = 0; i < array.length; i++){
-              totalSum = totalSum + Integer.parseInt(array[i]);
-           }
-           return totalSum;
+           return findSum(array);
         } 
-        else{
-           return Integer.parseInt(numbers);
-        }   
+        return Integer.parseInt(numbers);   
     }
+
+    private static int findSum(String[] array){
+       int sum = 0;
+       for(int i = 0; i < array.length; i++){
+          sum = sum + Integer.parseInt(array[i]);
+       }
+       return sum;
+    }
+    
 }
