@@ -38,4 +38,13 @@ public class CalculatorTest {
     public void testManyNumbers(){
         assertEquals(100, Calculator.add("33,33,33,1"));
     }
+ 
+    @Test
+    public void testManyNumbers2(){
+        assertEquals(3, Calculator.add("1,1,1"));
+    }
+
+
+
+
 }
