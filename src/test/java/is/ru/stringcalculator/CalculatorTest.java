@@ -20,6 +20,11 @@ public class CalculatorTest {
     }
     
     @Test
+    public void testOneNumber2(){
+        assertEquals(3, Calculator.add("3"));
+    }
+    
+    @Test
     public void testTwoNumbers(){
         assertEquals(11, Calculator.add("10,1"));
     }

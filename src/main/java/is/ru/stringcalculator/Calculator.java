@@ -11,7 +11,7 @@ public class Calculator {
            return Integer.parseInt(array[0]) + Integer.parseInt(array[1]);
         }
         else{
-           return 10;
+           return Integer.parseInt(numbers);
         }   
     }
 }
