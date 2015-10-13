@@ -58,4 +58,14 @@ public class CalculatorTest {
     public void testAnotherDelimeter(){
         assertEquals(5, Calculator.add("//:\n2:3"));
     }
+ 
+    @Test
+    public void testAnotherDelimeter2(){
+        assertEquals(10, Calculator.add("//:;,\n5:;,5"));
+    }
+
+
+
+
+
 }
