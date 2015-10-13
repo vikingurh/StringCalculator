@@ -33,4 +33,9 @@ public class CalculatorTest {
     public void testTwoNumbers2(){
         assertEquals(34, Calculator.add("29,5"));
     }
+ 
+    @Test
+    public void testManyNumbers(){
+        assertEquals(100, Calculator.add("33,33,33,1"));
+    }
 }

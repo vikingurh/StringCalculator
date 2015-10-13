@@ -8,7 +8,11 @@ public class Calculator {
         }
         else if(numbers.contains(",")){
            String[] array = numbers.split(",");
-           return Integer.parseInt(array[0]) + Integer.parseInt(array[1]);
+           int totalSum = 0;
+           for(int i = 0; i < array.length; i++){
+              totalSum = totalSum + Integer.parseInt(array[i]);
+           }
+           return totalSum;
         }
         else{
            return Integer.parseInt(numbers);
