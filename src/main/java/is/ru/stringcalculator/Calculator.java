@@ -7,16 +7,9 @@ public class Calculator {
            return 0;        
         }
         if(numbers.contains("//")){
-           int i = 0;
-           while(true){
-              Character ch = numbers.charAt(i);
-              if(ch == '\n'){
-                 break;
-              }
-              i++;
-           }
-           String delimeter = numbers.substring(2,i);
-           String delString = numbers.substring(i+1); 
+           int cutoff = findCutoff(numbers);
+           String delimeter = numbers.substring(2,cutoff);
+           String delString = numbers.substring(cutoff+1); 
            String[] delArray = delString.split(delimeter);
            return findSum(delArray);
         }
@@ -34,5 +27,16 @@ public class Calculator {
        }
        return sum;
     }
-    
+  
+    private static int findCutoff(String numbers){
+       int i = 0;
+       while(true){
+          Character ch = numbers.charAt(i);
+          if(ch == '\n'){
+             break;
+          }
+          i++;
+       }
+       return i;
+    }  
 }
