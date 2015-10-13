@@ -43,7 +43,11 @@ public class CalculatorTest {
     public void testManyNumbers2(){
         assertEquals(3, Calculator.add("1,1,1"));
     }
-
+ 
+    @Test
+    public void testNewLineBetweenNumbers(){
+        assertEquals(67, Calculator.add("7\n30,20\n10"));
+    }
 
 
 

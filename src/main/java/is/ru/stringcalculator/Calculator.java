@@ -6,8 +6,8 @@ public class Calculator {
         if(numbers.isEmpty()){
            return 0;        
         }
-        else if(numbers.contains(",")){
-           String[] array = numbers.split(",");
+        else if(numbers.contains(",") || numbers.contains("\n")){
+           String[] array = numbers.split("(,)|(\n)");
            int totalSum = 0;
            for(int i = 0; i < array.length; i++){
               totalSum = totalSum + Integer.parseInt(array[i]);
