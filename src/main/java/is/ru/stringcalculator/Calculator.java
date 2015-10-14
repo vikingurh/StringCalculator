@@ -21,14 +21,19 @@ public class Calculator {
            String[] array = numbers.split("(,)|(\n)");
            checkForNegatives(array);
            return findSum(array);
-        } 
+        }
+        if(Integer.parseInt(numbers) > 1000){
+           return 0;
+        }
         return Integer.parseInt(numbers);   
     }
 
     private static int findSum(String[] array){
        int sum = 0;
        for(int i = 0; i < array.length; i++){
-          sum = sum + Integer.parseInt(array[i]);
+          if(Integer.parseInt(array[i]) <= 1000){
+             sum = sum + Integer.parseInt(array[i]);
+          }
        }
        return sum;
     }

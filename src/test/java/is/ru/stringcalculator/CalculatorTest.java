@@ -74,7 +74,10 @@ public class CalculatorTest {
         assertEquals(-1, Calculator.add("//;\n5;-6"));
     }
 
-
+    @Test
+    public void testNumberBiggerThanThousand(){
+        assertEquals(5, Calculator.add("1200,2,3"));
+    }
 
 
 
