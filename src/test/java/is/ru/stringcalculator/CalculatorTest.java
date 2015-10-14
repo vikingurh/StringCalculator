@@ -94,5 +94,9 @@ public class CalculatorTest {
         assertEquals(50, Calculator.add("//[;:ab]\n40;:ab5;:ab5"));
     }
 
+    @Test
+    public void testDelimeterOfAnyLength2(){
+        assertEquals(10, Calculator.add("//[:::]\n5:::5"));
+    }
 
 }
