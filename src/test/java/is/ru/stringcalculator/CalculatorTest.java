@@ -113,5 +113,9 @@ public class CalculatorTest {
     public void testMultipleDelimetersOfAnyLength(){
         assertEquals(10, Calculator.add("//[,,,][:]\n3,,,3:4"));
     }
-
+    
+    @Test
+    public void testMultipleDelimetersOfAnyLength2(){
+        assertEquals(15, Calculator.add("//[::][;][,,,]\n3::4,,,6;2"));
+    }
 }
