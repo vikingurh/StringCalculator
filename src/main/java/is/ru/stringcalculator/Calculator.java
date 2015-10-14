@@ -121,8 +121,9 @@ public class Calculator {
              break;
           }
           if(ch == '['){
+             builder.append("(");
              while(true){
-                builder.append("(" + numbers.charAt(i+1));
+                builder.append(numbers.charAt(i+1));
                 i++;
                 Character cha = numbers.charAt(i+1);
                 if(cha == ']'){
@@ -135,4 +136,17 @@ public class Calculator {
        }
        return builder.toString();
     }
+    
+   /* private static boolean lengthMoreThanOne(String numbers){
+       for(int i = 0; i < numbers.length(); i++){
+          Character c = numbers.charAt(i);
+          if(c == '['){
+             Character ch = numbers.charAt(i+2);
+             if(ch != ']'){
+                return true;       
+             }
+          }
+       }
+       return false;
+    }*/
 }
