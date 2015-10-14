@@ -63,7 +63,11 @@ public class CalculatorTest {
     public void testAnotherDelimeter2(){
         assertEquals(10, Calculator.add("//:;,\n5:;,5"));
     }
-
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void testNegativeValue(){
+        assertEquals(-9, Calculator.add("-12,3"));
+    }
 
 
 
