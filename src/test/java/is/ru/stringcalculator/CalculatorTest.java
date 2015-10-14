@@ -80,10 +80,14 @@ public class CalculatorTest {
     }
 
     @Test
-    public void testNumberBiggerThanThousan2(){
+    public void testNumberBiggerThanThousand2(){
         assertEquals(0, Calculator.add("1001"));
     }
 
+    @Test
+    public void testNumberBiggerThanThousand3(){ 
+        assertEquals(1000, Calculator.add("1000"));
+    }
 
 
 
