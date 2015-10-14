@@ -15,18 +15,10 @@ public class Calculator {
            String[] delArray;
            int cutoff;
            if(numbers.contains("[")){
-              int bracketCount = getBracketCount(numbers);
-              if(bracketCount > 1){
-                 cutoff = findMultiCutoff(numbers);
-                 String temp = buildString(numbers);    
-                 delimeter = temp.substring(0, temp.length()-1);
-                 delString = numbers.substring(cutoff+1);
-              }
-              else{
-                 cutoff = findCutoff(numbers);
-                 delimeter = numbers.substring(3,cutoff);
-                 delString = numbers.substring(cutoff+2); 
-              }
+              cutoff = findCutoff(numbers);
+              String temp = buildString(numbers);    
+              delimeter = temp.substring(0, temp.length()-1);
+              delString = numbers.substring(cutoff+1);
            }
            else{
               delimeter = numbers.substring(2,3);
@@ -55,18 +47,6 @@ public class Calculator {
           }
        }
        return sum;
-    }
-  
-    private static int findCutoff(String numbers){
-       int i = 0;
-       while(true){
-          Character ch = numbers.charAt(i);
-          if(ch == ']'){
-             break;
-          }
-          i++;
-       }
-       return i;
     }  
   
     private static void negativesNotAllowed(String[] array){
@@ -89,7 +69,7 @@ public class Calculator {
        }
     }
     
-    private static int findMultiCutoff(String numbers){
+    private static int findCutoff(String numbers){
        int i = 0;
        while(true){
           Character ch = numbers.charAt(i);
@@ -99,17 +79,6 @@ public class Calculator {
           i++;
        }
        return i;   
-    }
-    
-    private static int getBracketCount(String numbers){
-       int bracketCount = 0;
-       for(int i = 0; i < numbers.length(); i++){
-          Character c = numbers.charAt(i);
-          if(c == '['){
-             bracketCount++;
-          }
-       }
-       return bracketCount;
     }
 
     private static String buildString(String numbers){
