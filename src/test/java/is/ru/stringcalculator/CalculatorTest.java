@@ -99,4 +99,9 @@ public class CalculatorTest {
         assertEquals(10, Calculator.add("//[:::]\n5:::5"));
     }
 
+    @Test
+    public void testMultipleDelimeters(){
+        assertEquals(13, Calculator.add("//[;][:]\n4;4:5"));
+    }
+
 }

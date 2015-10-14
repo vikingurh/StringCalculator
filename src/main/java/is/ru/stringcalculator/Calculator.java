@@ -14,10 +14,46 @@ public class Calculator {
            String delString;
            String[] delArray;
            if(numbers.contains("[")){
-              int cutoff = findCutoff(numbers);
-              delimeter = numbers.substring(3,cutoff);
-              delString = numbers.substring(cutoff+2); 
-              delArray = delString.split(delimeter);
+              int bracketCount = 0;
+              for(int i = 0; i < numbers.length(); i++){
+                  Character c = numbers.charAt(i);
+                  if(c == '['){
+                     bracketCount++;
+                  }
+              }
+              if(bracketCount > 1){
+                 int cutoff = findMultiCutoff(numbers);
+                 StringBuilder builder = new StringBuilder();
+                 int i = 0;
+                 while(true){
+                    Character ch = numbers.charAt(i);
+                    if(ch == '\n'){
+                       break;
+                    }
+                    if(ch == '['){
+                       while(true){
+                          builder.append("(" + numbers.charAt(i+1));
+                          i++;
+                          Character cha = numbers.charAt(i+1);
+                          if(cha == ']'){
+                             builder.append(")|");
+                             break;
+                          }
+                      }
+                   }
+                   i++;
+                }
+                String temp = builder.toString();
+                delimeter = temp.substring(0, temp.length()-1);
+                delString = numbers.substring(cutoff+1);
+                delArray = delString.split(delimeter);
+              }
+              else{
+                 int cutoff = findCutoff(numbers);
+                 delimeter = numbers.substring(3,cutoff);
+                 delString = numbers.substring(cutoff+2); 
+                 delArray = delString.split(delimeter);
+              }
            }
            else{
               delimeter = numbers.substring(2,3);
@@ -78,5 +114,17 @@ public class Calculator {
                negativesNotAllowed(array);
            }
        }
+    }
+    
+    private static int findMultiCutoff(String numbers){
+       int i = 0;
+       while(true){
+          Character ch = numbers.charAt(i);
+          if(ch == '\n'){
+             break;
+          }
+          i++;
+       }
+       return i;   
     }
 }
