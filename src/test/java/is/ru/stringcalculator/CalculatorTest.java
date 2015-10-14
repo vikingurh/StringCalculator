@@ -61,7 +61,7 @@ public class CalculatorTest {
  
     @Test
     public void testAnotherDelimeter2(){
-        assertEquals(10, Calculator.add("//:;,\n5:;,5"));
+        assertEquals(10, Calculator.add("//;\n5;5"));
     }
     
     @Test(expected=IllegalArgumentException.class)
@@ -89,6 +89,10 @@ public class CalculatorTest {
         assertEquals(1000, Calculator.add("1000"));
     }
 
+    @Test
+    public void testDelimeterOfAnyLength(){
+        assertEquals(50, Calculator.add("//[;:ab]\n40;:ab5;:ab5"));
+    }
 
 
 }

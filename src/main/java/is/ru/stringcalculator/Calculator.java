@@ -10,12 +10,22 @@ public class Calculator {
            return 0;        
         }
         if(numbers.contains("//")){
-           int cutoff = findCutoff(numbers);
-           String delimeter = numbers.substring(2,cutoff);
-           String delString = numbers.substring(cutoff+1); 
-           String[] delArray = delString.split(delimeter);
-           checkForNegatives(delArray); 
-           return findSum(delArray);
+           String delimeter;
+           String delString;
+           String[] delArray;
+           if(numbers.contains("[")){
+              int cutoff = findCutoff(numbers);
+              delimeter = numbers.substring(3,cutoff);
+              delString = numbers.substring(cutoff+2); 
+              delArray = delString.split(delimeter);
+              checkForNegatives(delArray); 
+              return findSum(delArray);
+           }
+           delimeter = numbers.substring(2,3);
+           delString = numbers.substring(4);
+           delArray = delString.split(delimeter);
+           checkForNegatives(delArray);
+           return findSum(delArray);   
         }
         if(numbers.contains(",") || numbers.contains("\n")){
            String[] array = numbers.split("(,)|(\n)");
@@ -42,7 +52,7 @@ public class Calculator {
        int i = 0;
        while(true){
           Character ch = numbers.charAt(i);
-          if(ch == '\n'){
+          if(ch == ']'){
              break;
           }
           i++;
