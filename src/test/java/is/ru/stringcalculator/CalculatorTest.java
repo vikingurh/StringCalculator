@@ -79,6 +79,11 @@ public class CalculatorTest {
         assertEquals(5, Calculator.add("1200,2,3"));
     }
 
+    @Test
+    public void testNumberBiggerThanThousan2(){
+        assertEquals(0, Calculator.add("1001"));
+    }
+
 
 
 
