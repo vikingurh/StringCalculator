@@ -69,6 +69,13 @@ public class CalculatorTest {
         assertEquals(-9, Calculator.add("-12,3"));
     }
 
+    @Test(expected=IllegalArgumentException.class)
+    public void testNegativeValue2(){
+        assertEquals(-1, Calculator.add("//;\n5;-6"));
+    }
+
+
+
 
 
 
