@@ -18,12 +18,12 @@ public class Calculator {
               delimeter = numbers.substring(3,cutoff);
               delString = numbers.substring(cutoff+2); 
               delArray = delString.split(delimeter);
-              checkForNegatives(delArray); 
-              return findSum(delArray);
            }
-           delimeter = numbers.substring(2,3);
-           delString = numbers.substring(4);
-           delArray = delString.split(delimeter);
+           else{
+              delimeter = numbers.substring(2,3);
+              delString = numbers.substring(4);
+              delArray = delString.split(delimeter);
+           }
            checkForNegatives(delArray);
            return findSum(delArray);   
         }
